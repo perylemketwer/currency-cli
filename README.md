@@ -33,7 +33,6 @@ Use "currency-cli [command] --help" for more information about a command.
 # Make
 
 ### Build
-
 ```bash
 $ make build
 $ ./bin/currency-cli usd #Example
@@ -63,4 +62,29 @@ bin/currency-cli-windows-amd64
 
 # Mage
 
-Under implementation!
+### Build
+```bash
+$ mage build
+```
+
+### Compile
+```bash
+$ mage compile
+Compliling for every OS and Platform...
+Compliling to darwin to amd64 architecture...
+Compliling to darwin to arm64 architecture...
+Compliling to freebsd to amd64 architecture...
+Compliling to freebsd to 386 architecture...
+Compliling to linux to amd64 architecture...
+Compliling to linux to 386 architecture...
+Compliling to openbsd to amd64 architecture...
+Compliling to openbsd to 386 architecture...
+Compliling to windows to amd64 architecture...
+Compliling to windows to 386 architecture...
+Done!
+```
+
+### Clean
+```bash
+$ mage clean
+```
