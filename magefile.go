@@ -21,7 +21,7 @@ func Build() error {
 	return cmd.Run()
 }
 
-// Compile a binary file to MacOS with amd64 or arm64 architecture - e.g mage compileToOS linux amd64
+// Compiling a binary file to MacOS with amd64 or arm64 architecture - e.g mage compileToOS linux amd64
 func CompileToOS(system, arch string) error {
 	fmt.Printf("Compliling to %s to %s architecture...\n", system, arch)
 
@@ -37,7 +37,7 @@ func CompileToOS(system, arch string) error {
 	return cmd.Run()
 }
 
-// Create binary to cross platform: Linux, MacOS, Windows, OpenBSD and FreeBSD
+// Compiling a binary to cross platform: Linux, MacOS, Windows, OpenBSD and FreeBSD
 func Compile() {
 	fmt.Println("Compliling for every OS and Platform...")
 
