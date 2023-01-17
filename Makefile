@@ -1,4 +1,4 @@
-.PHONY: currency-cli
+.PHONY: currency
 
 run:
 	@go run main.go $(COIN)
@@ -27,8 +27,12 @@ compile-windows:
 	@GOOS=windows GOARCH=386 go build -o bin/currency-cli-windows-386 .
 
 compile:
-	@echo "Compliling for every OS and Platform"
+	@echo "Compliling for every OS and Platform..."
 	@$(MAKE) compile-macos compile-freebsd compile-linux compile-windows
+
+test:
+	@echo "Running tests..."
+	@go test -v ./tests
 
 clean:
 	@rm -fv bin/*

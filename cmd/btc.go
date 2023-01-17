@@ -14,27 +14,30 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// The function to btc command
+func BtcCmd(cmd *cobra.Command, args []string) {
+	resp, err := http.Get("https://economia.awesomeapi.com.br/json/last/BTC")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	var price models.CoinToReal
+	json.Unmarshal([]byte(body), &price)
+
+	fmt.Printf("Cotação agora do Bitcoin: R$ %s", price.BitcoinToReal.Bid)
+}
+
 // btcCmd represents the btc command
 var btcCmd = &cobra.Command{
 	Use:   "btc",
 	Short: "Cotação agora do Bitcoin.",
-	Run: func(cmd *cobra.Command, args []string) {
-		resp, err := http.Get("https://economia.awesomeapi.com.br/json/last/BTC")
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer resp.Body.Close()
-
-		var price models.CoinToReal
-		json.Unmarshal([]byte(body), &price)
-
-		fmt.Printf("Cotação agora do Bitcoin: R$ %s", price.BitcoinToReal.Bid)
-	},
+	Run:   BtcCmd,
 }
 
 func init() {

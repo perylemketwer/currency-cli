@@ -65,6 +65,16 @@ func Run(coin string) {
 	fmt.Println(string(output))
 }
 
+// Running unit tests
+func Tests() {
+	fmt.Println("Running tests...")
+	output, err := exec.Command("go", "test", "-v", "./tests").Output()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(output))
+}
+
 // Remove all files of the project
 func Clean() {
 	fmt.Println("Cleaning...")
