@@ -26,7 +26,7 @@ func Build() error {
 func Compile(system, arch string) error {
 	fmt.Printf("Compliling to %s to %s architecture...\n", system, arch)
 
-	binName := fmt.Sprintf("./bin/currency-%s-%s", system, arch)
+	binName := fmt.Sprintf("./bin/currency-%s-%s/currency", system, arch)
 	systemName := fmt.Sprintf("GOOS=%s", system)
 	archName := fmt.Sprintf("GOARCH=%s", arch)
 
