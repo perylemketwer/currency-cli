@@ -44,12 +44,11 @@ func CompileAll() {
 
 	listOs := []string{"darwin", "freebsd", "linux", "openbsd", "windows"}
 	for _, k := range listOs {
-		Compile(k, "amd64")
-		if k == "darwin" {
-			Compile(k, "arm64")
-			continue
+		if k != "darwin" {
+			Compile(k, "386")
 		}
-		Compile(k, "386")
+		Compile(k, "amd64")
+		Compile(k, "arm64")
 	}
 
 	fmt.Println("Done!")
