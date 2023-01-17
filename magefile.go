@@ -21,8 +21,9 @@ func Build() error {
 	return cmd.Run()
 }
 
-// Compiling a binary file to MacOS with amd64 or arm64 architecture - e.g mage compileToOS linux amd64
-func CompileToOS(system, arch string) error {
+// Compiling a binary file to OS with amd64, arm64 or 386 architecture:
+// e.g mage compile linux amd64
+func Compile(system, arch string) error {
 	fmt.Printf("Compliling to %s to %s architecture...\n", system, arch)
 
 	binName := fmt.Sprintf("./bin/currency-%s-%s", system, arch)
@@ -38,17 +39,17 @@ func CompileToOS(system, arch string) error {
 }
 
 // Compiling a binary to cross platform: Linux, MacOS, Windows, OpenBSD and FreeBSD
-func Compile() {
+func CompileAll() {
 	fmt.Println("Compliling for every OS and Platform...")
 
 	listOs := []string{"darwin", "freebsd", "linux", "openbsd", "windows"}
 	for _, k := range listOs {
-		CompileToOS(k, "amd64")
+		Compile(k, "amd64")
 		if k == "darwin" {
-			CompileToOS(k, "arm64")
+			Compile(k, "arm64")
 			continue
 		}
-		CompileToOS(k, "386")
+		Compile(k, "386")
 	}
 
 	fmt.Println("Done!")

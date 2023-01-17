@@ -11,7 +11,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "currency-cli",
+	Use:   "currency",
 	Short: "Um CLI para solicitar a cotação de várias moedas.",
 	Long: `Currency CLI é uma CLI para consultar a cotação de várias moedas. 
 Exemplo: 
