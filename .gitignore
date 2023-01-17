@@ -16,3 +16,7 @@
 
 # Binaries
 bin/
+dist/
+
+# Env vars file
+.env
