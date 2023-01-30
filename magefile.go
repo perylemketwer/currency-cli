@@ -14,6 +14,9 @@ import (
 // If not set, running mage will list available targets
 var Default = Build
 
+// Constant to OS types to compile
+var listOs = []string{"darwin", "freebsd", "linux", "openbsd", "windows"}
+
 // Create a local binary to execute
 func Build() error {
 	fmt.Println("Building...")
@@ -26,7 +29,13 @@ func Build() error {
 func Compile(system, arch string) error {
 	fmt.Printf("Compliling to %s to %s architecture...\n", system, arch)
 
-	binName := fmt.Sprintf("./bin/currency-%s-%s/currency", system, arch)
+	var binName string
+	if system == "windows" {
+		binName = fmt.Sprintf("./bin/currency-%s-%s/currency.exe", system, arch)
+	} else {
+		binName = fmt.Sprintf("./bin/currency-%s-%s/currency", system, arch)
+	}
+
 	systemName := fmt.Sprintf("GOOS=%s", system)
 	archName := fmt.Sprintf("GOARCH=%s", arch)
 
@@ -42,7 +51,6 @@ func Compile(system, arch string) error {
 func CompileAll() {
 	fmt.Println("Compliling for every OS and Platform...")
 
-	listOs := []string{"darwin", "freebsd", "linux", "openbsd", "windows"}
 	for _, k := range listOs {
 		if k != "darwin" {
 			Compile(k, "386")
