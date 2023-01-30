@@ -69,7 +69,7 @@ $ mage build
 
 ### Compile
 ```bash
-$ mage compile
+$ mage compileAll
 Compliling for every OS and Platform...
 Compliling to darwin to amd64 architecture...
 Compliling to darwin to arm64 architecture...
@@ -87,4 +87,11 @@ Done!
 ### Clean
 ```bash
 $ mage clean
+```
+
+# GoReleaser
+```
+$ export GITHUB_TOKEN="YOUR_GH_TOKEN"
+$ git tag -a v0.1.0 -m "First release"
+$ git push origin v0.1.0
 ```
