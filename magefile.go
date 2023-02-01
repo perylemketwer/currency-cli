@@ -64,7 +64,6 @@ func CompileAll() {
 
 // Running a CLI with currency type
 func Run(coin string) {
-	fmt.Println("Running...")
 	output, err := exec.Command("go", "run", "main.go", coin).Output()
 	if err != nil {
 		log.Fatal(err)
@@ -85,7 +84,13 @@ func Tests() {
 // Remove all files of the project
 func Clean() {
 	fmt.Println("Cleaning...")
+
 	err := os.RemoveAll("./bin")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = os.RemoveAll("./dist")
 	if err != nil {
 		log.Fatal(err)
 	}

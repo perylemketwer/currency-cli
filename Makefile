@@ -35,9 +35,10 @@ compile:
 	@echo "Compliling for every OS and Platform..."
 	@$(MAKE) compile-macos compile-freebsd compile-openbsd compile-linux compile-windows
 
-test:
+runTests:
 	@echo "Running tests..."
 	@go test -v ./tests
 
 clean:
 	@rm -rf ./bin/
+	@rm -rf ./dist/

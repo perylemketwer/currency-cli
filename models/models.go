@@ -11,4 +11,5 @@ type CoinToReal struct {
 	BitcoinToReal       Price `json:"BTCBRL"`
 	DogecoinToReal      Price `json:"DOGEBRL"`
 	CanadianDolarToReal Price `json:"CADBRL"`
+	EthereumToReal      Price `json:"ETHBRL"`
 }
