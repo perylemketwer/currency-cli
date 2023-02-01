@@ -15,7 +15,16 @@ import (
 var Default = Build
 
 // Constant to OS types to compile
-var listOs = []string{"darwin", "dragonfly", "freebsd", "linux", "openbsd", "windows"}
+var listOs = []string{
+	"darwin",
+	"dragonfly",
+	"freebsd",
+	"linux",
+	"netbsd",
+	"openbsd",
+	"solaris",
+	"windows",
+}
 
 // Create a local binary to execute
 func Build() error {
@@ -60,8 +69,8 @@ func CompileAll() {
 			Compile(k, "amd64")
 		default:
 			Compile(k, "amd64")
-			Compile(k, "arm64")
 			Compile(k, "386")
+			Compile(k, "arm64")
 		}
 	}
 

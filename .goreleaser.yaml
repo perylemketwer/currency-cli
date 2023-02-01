@@ -13,6 +13,9 @@ builds:
       - darwin
       - freebsd
       - openbsd
+      - dragonfly
+      - netbsd
+      - solaris
 
 archives:
   - format: tar.gz
