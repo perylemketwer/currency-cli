@@ -64,7 +64,7 @@ func CompileAll() {
 		switch k {
 		case "darwin":
 			Compile(k, "arm64")
-			fallthrough
+			Compile(k, "amd64")
 		case "dragonfly":
 			Compile(k, "amd64")
 		default:
